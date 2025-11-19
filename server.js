@@ -38,6 +38,20 @@ pool.getConnection((err, connection) => {
 });
 
 // --- CRUD ROUTES ---
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Welcome to the TiDB Menu API!',
+        status: 'Operational',
+        endpoints: {
+            getAll: '/api/menu (GET)',
+            getOne: '/api/menu/:id (GET)',
+            create: '/api/menu (POST)',
+            update: '/api/menu/:id (PUT)',
+            delete: '/api/menu/:id (DELETE)'
+        },
+        next_step: 'Use the /api/menu endpoints or connect your Flutter app.'
+    });
+});
 
 // 1. CREATE: Add a new menu item
 app.post('/api/menu', (req, res) => {
